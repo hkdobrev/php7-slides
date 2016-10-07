@@ -118,7 +118,7 @@
                         <aside class="notes">
                             Aside from the automatic approach with tests,
                             this is about a more human approach.
-                            Read the PHP 7 breaking changes and go through your codebase.
+                            Read the list of PHP 7 breaking changes and go through your codebase.
                             Some of the potential pitfalls could be found with searching
                             for specific syntax, others could be found with common-sense
                             and the insight you have of your app.
@@ -140,11 +140,12 @@
                         </a>
                         <aside class="notes">
                             <p>
+                            There's a PHP 7 compatibility checker.
                             This is an interesting project which you may find very useful
                             to find any other potential problems.
                             It performs a static code analysis on your codebase
                             and shows you the exact spots of your code which
-                            would or might not work on PHP 7.
+                            wouldn't or might not work on PHP 7.
                             </p>
                             <p>
                             So there are these three approaches:
@@ -163,14 +164,14 @@
                         Once you are comfortable with your app on PHP 7,
                         upgrade your staging server if you have one
                         and observe if there are any problems while your
-                        colleagues, clients or beta users use it.
+                        colleagues, clients or beta testers use it.
                     </aside>
                 </section>
                 <section>
                     <section>
                         <h2>ENV: Production</h2>
                         <aside class="notes">
-                            So we come to the most important stage - the production environment.
+                            So we come to the real test - the production environment.
                             If you have been meticulous this would be easy.
                             But if you want to be better safe than sorry, then
                             don't just upgrade your production servers to PHP 7
