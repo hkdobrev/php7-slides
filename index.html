@@ -29,33 +29,100 @@
             <div class="slides">
                 <section>
                     <h1>Upgrading to PHP 7</h1>
+                    <aside class="notes">
+                        Hi!
+                        PHP 7 was released around a year ago, but many projects still haven't updated.
+                        We've recently went through the update process
+                        and I'd like to tell you about what we went through
+                        and how you could upgrade your evolving application while in production.
+                    </aside>
                 </section>
                 <section>
                     <h2>No deadline</h2>
+                    <aside class="notes">
+                        Don't set yourself a deadline.
+                        I've set a deadline to this talk and it was a mistake.
+                        Don't rush it and cover your bases so you don't get bugs on production.
+                    </aside>
                 </section>
                 <section>
                     <h2>Start early</h2>
+                    <aside class="notes">
+                        You can never start too early.
+                        There will always be this one library which doesn't support
+                        PHP 7, but you can't really remove it easily and would be a PITA.
+                        Stop finding excuses not to upgrade. Start now.
+                    </aside>
                 </section>
                 <section>
                     <section>
                         <h2>ENV: Development</h2>
+                        <aside class="notes">
+                            So how do we actually do it?
+                            Start with your development environment.
+                            Install PHP 7 and start checking things off like:
+                            PHP extensions, Composer dependencies and
+                            major broken things until your application works.
+                            Chances are you would be able to make most
+                            features run on PHP 7 in just a few hours.
+                        </aside>
                     </section>
                     <section>
                         <h2>Upgrade shared environment</h2>
+                        <aside class="notes">
+                            No matter if you use Vagrant, Docker or whatever
+                            upgrade it to PHP 7 as early as possible.
+                            Make sure all of your developers are building new features
+                            and testing the application on PHP 7.
+                        </aside>
                     </section>
                 </section>
                 <section>
                     <section>
                         <h2>ENV: Testing</h2>
+                        <aside class="notes">
+                            The testing environment - the most important one.
+                            First make sure your tests pass on PHP 7 and fix any errors.
+                            This is one of the moments where your testsuite really matters.
+                        </aside>
                     </section>
                     <section>
                         <h2>Test on both PHP 5 and 7 in parallel</h2>
+                        <aside class="notes">
+                            You can use continuous integration to run your tests
+                            both on PHP 5 and PHP 7.
+                            Even though you still have PHP 5 on production,
+                            you can continue developing your application with
+                            PHP 7 in mind and fix any issues.
+                        </aside>
                     </section>
                     <section>
                         <h2>Test your dependencies</h2>
+                        <aside class="notes">
+                            Test your dependencies on PHP 7 as well.
+                            This is something which many people would skip,
+                            but it's really important.
+                            Even if the tests of your application pass
+                            you can't cover everything and you must ensure
+                            all the unit tests of your dependencies pass on PHP 7 as well.
+                            What we did is we got a list of all of our top-level dependencies
+                            and started checking them off.
+                            We checked if it was tested on PHP 7, whether we needed to upgrade
+                            to a new version, we've made some pull requests to projects
+                            and also we've gone through all of our own packages
+                            and updated tests.
+                        </aside>
                     </section>
                     <section>
                         <h2>Go over breaking changes</h2>
+                        <aside class="notes">
+                            Aside from the automatic approach with tests,
+                            this is about a more human approach.
+                            Read the PHP 7 breaking changes and go through your codebase.
+                            Some of the potential pitfalls could be found with searching
+                            for specific syntax, others could be found with common-sense
+                            and the insight you have of your app.
+                        </aside>
                     </section>
                     <section>
                         <h2>PHP 7 Compatibility Checker</h2>
@@ -71,17 +138,53 @@
                             /
                             sstalle/php7cc
                         </a>
+                        <aside class="notes">
+                            <p>
+                            This is an interesting project which you may find very useful
+                            to find any other potential problems.
+                            It performs a static code analysis on your codebase
+                            and shows you the exact spots of your code which
+                            would or might not work on PHP 7.
+                            </p>
+                            <p>
+                            So there are these three approaches:
+                            <ul>
+                                <li>Unit tests</li>
+                                <li>Human approach</li>
+                                <li>Static code analysis</li>
+                            </ul>
+                            </p>
+                        </aside>
                     </section>
                 </section>
                 <section>
                     <h2>ENV: Staging</h2>
+                    <aside class="notes">
+                        Once you are comfortable with your app on PHP 7,
+                        upgrade your staging server if you have one
+                        and observe if there are any problems while your
+                        colleagues, clients or beta users use it.
+                    </aside>
                 </section>
                 <section>
                     <section>
                         <h2>ENV: Production</h2>
+                        <aside class="notes">
+                            So we come to the most important stage - the production environment.
+                            If you have been meticulous this would be easy.
+                            But if you want to be better safe than sorry, then
+                            don't just upgrade your production servers to PHP 7
+                            and hope for the best.
+                        </aside>
                     </section>
                     <section>
                         <h2>PHP 5 and 7 at the same time</h2>
+                        <aside class="notes">
+                            You can use a load balancer in front of you application servers
+                            and create new servers on PHP 7.
+                            You can gradually put traffic on them and check if anything's amiss.
+                            When everything is OK, remove your PHP 5 servers.
+                        </aside>
                     </section>
                 </section>
                 <section>
@@ -92,6 +195,14 @@
                         <li>Null coalescing and spaceship operator</li>
                         <li>Anonymous classes</li>
                     </ul>
+                    <aside class="notes">
+                        Once you have upgraded to PHP 7, don't forget to enjoy it.
+                        You will get the benefits of the better performance of PHP 7 straight away,
+                        but also start using the new features like scalar and return
+                        type declarations, new operators, anonymous classes and more.
+                        Upgrade minimum PHP version of your libraries
+                        and push the PHP community forward.
+                    </aside>
                 </section>
                 <section>
                     <h2>Haralan Dobrev</h2>
@@ -106,6 +217,9 @@
                         <a href="https://clippings.github.io">clippings.github.io</a>
                     </p>
                     <p>Thanks!</p>
+                    <aside class="notes">
+                        Thank you! I'm @hkdobrev from Clippings.com!
+                    </aside>
                 </section>
             </div>
         </div>
